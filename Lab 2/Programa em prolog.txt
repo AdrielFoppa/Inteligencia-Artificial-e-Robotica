@@ -1,0 +1,105 @@
+progenitor(pietro,joao).
+progenitor(pietro,clara).
+progenitor(pietro,francisco).
+progenitor(pietro,valeria).
+progenitor(pietro,ana).
+progenitor(antonita,joao).
+progenitor(antonita,clara).
+progenitor(antonita,francisco).
+progenitor(antonita,valeria).
+progenitor(antonita,ana).
+progenitor(ana,helena).
+progenitor(ana,joana).
+progenitor(joao,mario).
+progenitor(mario,carlos).
+progenitor(helena,carlos).
+progenitor(clara,pietro2).
+progenitor(clara,enzo).
+progenitor(jacynto,francisca).
+progenitor(jacynto,antonia).
+progenitor(claudia,francisca).
+progenitor(claudia,antonia).
+progenitor(luzia,jacynto).
+progenitor(pablo,jacynto).
+
+sexo(pietro,masculino).
+sexo(joao,masculino).
+sexo(mario,masculino).
+sexo(jacynto,masculino).
+sexo(pablo,masculino).
+sexo(francisco,masculino).
+sexo(carlos,masculino).
+sexo(pietro2,masculino).
+sexo(enzo,masculino).
+
+sexo(antonita,feminino).
+sexo(clara,feminino).
+sexo(valeria,feminino).
+sexo(ana,feminino).
+sexo(helena,feminino).
+sexo(joana,feminino).
+sexo(francisca,feminino).
+sexo(claudia,feminino).
+sexo(luzia,feminino).
+
+avo_feminino(X,Y):- progenitor(X,A),
+    progenitor(A,Y),
+    sexo(X,feminino).
+
+avo_masculino(X,Y):- progenitor(X,A),
+    progenitor(A,Y),
+    sexo(X,masculino).
+
+irmao(X,Y):- progenitor(A,X),
+    progenitor(A,Y),
+    X\==Y,
+    sexo(X,masculino).
+
+irma(X,Y):- progenitor(A,X),
+    progenitor(A,Y),
+    X\==Y,
+    sexo(X,feminino).
+
+tio(X,Y):- irmao(X,A),
+    progenitor(A,Y).
+
+tia(X,Y):- irma(X,A),
+    progenitor(A,Y).  
+
+primo(X,Y):- progenitor(A,Y),
+    tio(A,X),
+    sexo(X,masculino).
+primo(X,Y):- progenitor(A,Y),
+    tia(A,X),
+    sexo(X,masculino).
+    
+prima(X,Y):- progenitor(A,Y),
+    tio(A,X),
+    sexo(X,feminino).
+prima(X,Y):- progenitor(A,Y),
+    tia(A,X),
+    sexo(X,feminino).
+    
+descendente(X,Y):- progenitor(Y,X).
+descendente(X,Y):- progenitor(Y,A),
+    progenitor(A,X).
+        
+ascendente(X,Y):- progenitor(X,Y).
+ascendente(X,Y):- progenitor(X,A),
+    progenitor(A,Y).
+
+
+        
+        
+        
+        
+        
+        
+        
+       
+        
+        
+        
+        
+        
+        
