@@ -1,0 +1,23 @@
+@RELATION Partidas
+
+@ATTRIBUTE Tempo {Sol,Nublado,Chuva}
+@ATTRIBUTE Temperatura {Quente,Morno,Frio}
+@ATTRIBUTE Umidade {Alta,Normal}
+@ATTRIBUTE Vento {Fraco,Forte}
+@ATTRIBUTE Partida {SIM,NAO}
+
+@DATA
+Sol,Quente,Alta,Fraco,NAO
+Sol,Quente,Alta,Forte,NAO
+Nublado,Quente,Alta,Fraco,SIM
+Chuva,Morno,Alta,Fraco,SIM
+Chuva,Frio,Normal,Fraco,SIM
+Chuva,Frio,Normal,Forte,NAO
+Nublado,Frio,Normal,Forte,SIM
+Sol,Morno,Alta,Fraco,NAO
+Sol,Frio,Normal,Fraco,SIM
+Chuva,Morno,Normal,Fraco,SIM
+Sol,Morno,Normal,Forte,SIM
+Nublado,Morno,Alta,Forte,SIM
+Nublado,Quente,Normal,Fraco,SIM
+Chuva,Morno,Alta,Forte,NAO
